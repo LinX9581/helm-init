@@ -1,0 +1,49 @@
+replicaCount: 2
+
+image:
+  repository: asia.gcr.io/nownews-analytics/nodejs-template
+  pullPolicy: IfNotPresent
+  tag: "3.5"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 3005
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: nodejs-template2.linx.website
+      paths:
+        - path: /(.*)
+          pathType: Prefix
+
+resources:
+  requests:
+    cpu: 100m
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
