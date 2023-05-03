@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nodejs-template-env
+  namespace: nodejs-template3
+data:
+  db_host: "172.16.2.10"
+  db_user: "docker"
+  db_password: "00000000"

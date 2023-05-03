@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: asia.gcr.io/nownews-analytics/nodejs-template
   pullPolicy: IfNotPresent
-  tag: "3.5"
+  tag: "3.9"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,7 +37,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3005
+  port: 3006
 
 ingress:
   enabled: true
